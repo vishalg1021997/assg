@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            /* width: 80%; */
+        }
+
+        .container{
+            width: 100%;
+            height: fit-content;
+            background-color: white;
+            margin-top: 50px;
+            padding-bottom: 20px;
+            /* text-align: center; */
+            /* border: 2px solid red; */
+        }
+
+        #box1{
+            margin: auto;
+            width: 50%;
+            height: fit-content;
+            padding: 1px;
+            text-align: center;
+            line-height: 25px;
+            font-size: 17px;
+            /* border: 2px solid yellow; */
+        }
+
+        #box1 > h1{
+            color: hsl(36deg 59% 49%);
+            font-size: 55px;
+            margin-bottom: 30px;
+        }
+
+        #box2{
+            margin: auto;
+            width: 75%;
+            display: flex;
+            height: fit-content;
+            justify-content: space-between;
+            /* border: 2px solid green; */
+        }
+
+        #box2 > div{
+            width: 325px;
+            height: fit-content;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #box2 > div > img{
+            width: 325px;
+            height: 225px;
+        }
+
+        #box2 > div > p{
+            color: hsl(36deg 59% 49%);
+        }
+
+        @media all and (min-width:300px) and (max-width:850px){
+            #box2{
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                width: fit-content;
+                /* margin: auto; */
+            }
+            .container{
+                width: 100%;
+                /* overflow: hidden; */
+
+            }
+
+            #box1{
+                width: 70%;
+
+            }
+        }
+
+        @media all and (min-width:100px) and (max-width:550px){
+            #box1{
+                width: 100%;
+
+            }
+            h1{
+                line-height: 45px;
+            }
+        }
+
+        /* .flex_container {
+            border: 2px solid red;
+            display: flex;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            width: 500px;
+        }
+
+        .e {
+            border: 2px solid green;
+            box-sizing: border-box;
+            width: 50%;
+        }
+
+        @media all and (min-width:300px) and (max-width:850px){
+            .e {
+                width: 100%;
+            }
+        } */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="box1">
+            <h1>Rooms & Suits</h1>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a
+                large language ocean.</p>
+        </div>
+        <div id="box2">
+            <div>
+                <img src="https://preview.colorlib.com/theme/sogo/images/ximg_1.jpg.pagespeed.ic.sI14MfHd8f.webp" alt="">
+                <h2>Single Room</h2>
+            <p>90$ / PER NIGHT</p>
+            </div>
+            
+            <div>
+                <img src="https://preview.colorlib.com/theme/sogo/images/ximg_2.jpg.pagespeed.ic.Y_xvNxfEhu.webp" alt="">
+                <h2>Family Room</h2>
+                <p>120$ / PER NIGHT</p>
+            </div>
+            <div>
+                <img src="https://preview.colorlib.com/theme/sogo/images/ximg_3.jpg.pagespeed.ic.mYPnC0rXDl.webp" alt="">
+                <h2>Presidential Room</h2>
+                <p>20$ / PER NIGHT</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="flex_container">
+        <div class="e">1</div>
+        <div class="e">2</div>
+        <div class="e">3</div> -->
+    </div>
+</body>
+</html>

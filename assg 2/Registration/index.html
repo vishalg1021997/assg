@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #container {
+            width: 55%;
+            background-color: white;
+            margin: auto;
+            padding: 100px 50px 100px 50px;
+            /* text-align: center; */
+        }
+
+        #container>div {
+            display: inline-block;
+            width: 250px;
+            height: 350px;
+            /* border: 1px solid black; */
+        }
+
+        #container :first-child {
+            margin-right: 170px;
+            vertical-align: top;
+        }
+
+        #container>div>* {
+            display: block;
+        }
+
+        label {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        input {
+            height: 34px;
+            width: 250px;
+            margin-bottom: 20px;
+            border: 1.5px solid black;
+        }
+
+        #container>div :nth-child(7) {
+            font-size: 20px;
+            color: red;
+            margin-top: -15px;
+            margin-bottom: 27px;
+        }
+
+        button {
+            height: 45px;
+            width: 260px;
+            font-size: larger;
+            color: white;
+            background-color: black;
+            border: none;
+            /* margin-bottom: 20px; */
+        }
+
+        /* #container :last-child */
+        #content2{
+            padding: 30px 20px 30px;
+            box-sizing: border-box;
+            background-color: black;
+            color: white;
+        }
+
+        h2{
+            font-weight: normal;
+            margin-bottom: 0px;
+        }
+
+        h1{
+            font-weight: normal;
+            font-size: 40px;
+            margin-top: 0px;
+        }
+
+        p{
+            font-size: 21px;
+            margin-top: 2px;
+        }
+
+        h2+h2{
+            margin-top: 0px;
+    /* margin-left: -20px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="content1">
+            <label for="">NAME</label>
+            <input type="name">
+            <label for="">EMAIL</label>
+            <input type="email">
+            <label for="">MOBILE</label>
+            <input type="number">
+            <label for="">Enter a valid mobile</label>
+            <button>REGISTER</button>
+        </div>
+        <div id="content2">
+            <h2>NAME</h2>
+            <h1>MASAI</h1>
+            <h2>EMAIL</h2>
+            <p>email@masaischool.com</p>
+            <h2>MOBILE</h2>
+            <h2>9876543210</h2>
+        </div>
+    </div>
+</body>
+
+</html>

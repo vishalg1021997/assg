@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .container {
+            width: 100%;
+            background-color: rgb(247, 204, 227);
+            margin: 50px auto;
+            padding-top: 30px;
+            padding-bottom: 45px;
+            background-image: url(https://png.pngtree.com/thumb_back/fw800/back_our/20190619/ourmid/pngtree-literary-cartoon-watercolor-hand-drawn-cafe-menu-background-material-image_139559.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .box {
+            margin: auto;
+            width: 80%;
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+
+        .box>div {
+            width: 100%;
+            height: auto;
+            background-color: white;
+            /* margin: auto ; */
+            border-radius: 10px;
+            box-shadow: rgb(100 100 111 / 20%) 0px 5px 15px;
+            padding: 5px 30px 10px;
+            box-sizing: border-box;
+        }
+
+        .box>div>div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .box>div>div>h3 {
+            margin-bottom: 2px;
+            font-size: 21px;
+        }
+
+        .box>div>div>h3+h3 {
+            color: hsl(39deg 55% 46%);
+            font-weight: bolder;
+        }
+
+        .box>div>p {
+            font-size: 15px;
+            font-weight: 600;
+            color: hsl(0deg 0% 47%);
+        }
+
+        @media all and (min-width:500px) and (max-width:900px) {
+            .box {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(5, 1fr);
+
+            }
+        }
+
+        @media all and (min-width:100px) and (max-width:770px) {
+            .container {
+                margin: 0px;
+                /* height: 100vh; */
+            }
+        }
+
+        @media all and (min-width:100px) and (max-width:500px) {
+            .box {
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(9, 1fr);
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div>
+                <div>
+                    <h3>Cappuccino</h3>
+                    <h3>$49</h3>
+                </div>
+                <p>Usage Of the Internet is becoming more
+                    common due to rapid advance.</p>
+            </div>
+            <div>
+                <div>
+                    <h3>Americano</h3>
+                    <h3>$49</h3>
+                </div>
+                <p>Usage Of the Internet is becoming more
+                    common due to rapid advance.</p>
+            </div>
+            <div>
+                <div>
+                    <h3>Espresso</h3>
+                    <h3>$49</h3>
+                </div>
+                <p>Usage Of the Internet is becoming more
+                    common due to rapid advance.</p>
+            </div>
+            <div>
+                <div>
+                    <h3>Macchiato</h3>
+                    <h3>$49</h3>
+                </div>
+                <p>Usage Of the Internet is becoming more
+                    common due to rapid advance.</p>
+            </div>
+            <div>
+                <div>
+                    <h3>Mocha</h3>
+                    <h3>$49</h3>
+                </div>
+                <p>Usage Of the Internet is becoming more
+                    common due to rapid advance.</p>
+            </div>
+            <div>
+                <div>
+                    <h3>Coffee Latte</h3>
+                    <h3>$49</h3>
+                </div>
+                <p>Usage Of the Internet is becoming more
+                    common due to rapid advance.</p>
+            </div>
+            <div>
+                <div>
+                    <h3>Piccolo Latte</h3>
+                    <h3>$49</h3>
+                </div>
+                <p>Usage Of the Internet is becoming more
+                    common due to rapid advance.</p>
+            </div>
+            <div>
+                <div>
+                    <h3>Ristretto</h3>
+                    <h3>$49</h3>
+                </div>
+                <p>Usage Of the Internet is becoming more
+                    common due to rapid advance.</p>
+            </div>
+            <div>
+                <div>
+                    <h3>Affogato</h3>
+                    <h3>$49</h3>
+                </div>
+                <p>Usage Of the Internet is becoming more
+                    common due to rapid advance.</p>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

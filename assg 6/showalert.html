@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Showing Alerts</title>
+        <style>
+            input{
+                text-transform: capitalize;
+            }
+        </style>
+	</head>
+	<body>
+        <input type="text" name="fname" id="fname" placeholder="Enter Your First Name">
+        <input type="text" name="lname" id="lname" placeholder="Enter Your Last Name">
+		<button onclick="showFirstName()">FIRSTNAME</button>
+		<button onclick="showLastName()">LASTNAME</button>
+		<button onclick="showFullName()">FIRSTNAME NAME</button>
+		<script type="text/javascript">
+            let fname = document.getElementById('fname')
+            let lname = document.getElementById('lname')
+            function showFirstName() {
+			    // Complete to show an alert with your first name
+                console.log(fname.value) 
+                alert('First Name is'+" "+fname.value)
+                
+			}
+
+            function showLastName() {
+                // Complete to show an alert with your last name   
+                alert('Last Name is'+" "+lname.value)          
+            }
+
+            function showFullName() {
+                // Complete to show an alert with your full name (firstname lastname)
+                alert('Full Name is'+" "+fname.value+" "+lname.value)
+            }
+        </script>
+	</body>
+</html>

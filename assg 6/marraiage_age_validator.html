@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            width: 400px;
+            height: 400px;
+            margin: 50px auto;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid red;
+            border-radius: 20px;
+            padding: 20px;
+            /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            /* flex-wrap: wrap; */
+            border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
+            flex-direction: column;
+        }
+
+        /* .container:first-child{
+            width: 200px;
+            height: 200px;
+            background-color: #4d9f0c;
+        } */
+
+        /* .container:nth-child(2){
+            width: fit-content;
+            height: fit-content;
+        } */
+
+        .container>input {
+            width: 350px;
+            height: 130px;
+            background-color: white;
+            font-size: 50px;
+            border: none;
+            outline: none;
+            text-align: center;
+
+        }
+
+        #med {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: fit-content;
+            margin-bottom: 35px;
+        }
+
+        #gender,
+        #year {
+            width: 50%;
+            margin-right: 20px;
+            height: 40px;
+            text-align: center;
+            font-size: large;
+            /* border-radius: 10px; */
+            border-top: 5px solid;
+            border-bottom: 5px solid;
+            border-left: 0;
+            border-right: 0;
+            border-image: linear-gradient(to right, grey 25%, yellow 25%, yellow 50%, red 50%, red 75%, teal 75%) 5;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            /* box-sizing: border-box; */
+        }
+
+        #gender {
+            height: 50px;
+        }
+
+        #gender:focus,
+        #year:focus {
+            outline: none;
+            /* border-color: #00080e; */
+            box-shadow: 0 0 30px #9ecaed;
+            cursor: pointer;
+        }
+
+        button {
+            width: 50%;
+            height: 50px;
+            font-size: large;
+            font-weight: 700;
+            background-image: linear-gradient(to top right, rgb(47, 34, 226), rgb(98, 169, 216));
+            color: white;
+            border-radius: 10px;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 5px solid rgb(33, 25, 148);
+            box-shadow: rgba(0, 0, 0, 0.15) 3px 5px 2.6px;
+            position: relative;
+            top: 2px;
+        }
+
+        button:hover {
+            box-shadow: rgba(0, 0, 0, 0.15) 6px 8px 3px;
+            top: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- <label id="top">Result</label> -->
+        <input type="text" placeholder="Result" id="top" readonly>
+        <div id="med">
+            <select name="gender" id="gender">
+                <option value="Select" selected="selected">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <input type="number" min="1900" max="2022" step="1" value="2022" id="year" />
+        </div>
+        <button onclick="validate()">Submit</button>
+    </div>
+</body>
+<script>
+    var result = document.getElementById('top')
+    var gender = document.getElementById('gender')
+    var year = document.getElementById('year')
+    function validate(){
+        if(gender.value == 'Select'){
+            result.value = 'Invalid Input'
+        }else if(gender.value == 'Male' &&  new Date().getFullYear() - Number(year.value) >= 21){
+            result.value = 'Eligible'
+        }else if(gender.value == 'Female' &&  new Date().getFullYear() - Number(year.value) >= 18){
+            result.value = 'Eligible'
+        }else{
+            result.value = 'Not Eligible'
+        }
+        // console.log(gender.value)
+        // console.log(year.value)
+        // // result.value = "defgh"
+        // console.log(result.value)   
+    }
+
+</script>
+<script>
+
+</script>
+
+</html>

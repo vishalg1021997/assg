@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter number a" id="a"> 
+    <input type="text" placeholder="Enter number b" id="b">
+    <button id="myBtn">Click here to find the exponent!</button>
+    <p></p>
+</body>
+<script>
+    var a = document.querySelector('#a')
+    var b = document.querySelector('#b')
+    var element = document.getElementById("myBtn");
+    function calculate(){
+        var sum  = 1
+        for(i = 0;i< Number(b.value);i++){
+            sum *= Number(a.value)
+        }
+        document.querySelector('p').innerText = 'The Exponent Value of '+a.value+' and '+b.value+' is '+sum
+        alert('The Multiplication Value of '+a.value+' and '+b.value+' is '+(Number(a.value)*Number(b.value)))
+    }
+    element.addEventListener('click',calculate)
+</script>
+</html>

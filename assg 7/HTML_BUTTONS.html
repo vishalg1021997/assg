@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+
+        .container{
+            width: 100%;
+            height: 125px;
+            background-color: white;
+            display: flex;
+            margin-top: 200px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button{
+            padding: 18px 28px 18px;
+            font-size: x-large;
+            font-weight: 600;
+            margin: 5px;
+            border: 0;
+            border-radius: 8px;
+            color: white;
+        }
+
+        #button1{
+            background-color: hsl(211deg 100% 51%);
+        }
+
+        #button1:hover{
+            border: 2px solid hsl(211deg 100% 51%);
+            background-color: white;
+            color: hsl(211deg 100% 51%);
+            cursor: pointer;
+        }
+
+        #button2{
+            background-color: hsl(208deg 7% 46%);
+        }
+
+        #button2:hover{
+            border: 2px solid hsl(208deg 7% 46%);
+            background-color: white;
+            color: hsl(208deg 7% 46%);
+            cursor: pointer;
+        }
+
+        #button3{
+            background-color: hsl(134deg 62% 40%);
+        }
+
+        #button3:hover{
+            border: 2px solid hsl(134deg 62% 40%);
+            background-color: white;
+            color: hsl(134deg 62% 40%);
+            cursor: pointer;
+        }
+
+        #button4{
+            background-color: hsl(354deg 70% 54%);
+        }
+
+        #button4:hover{
+            border: 2px solid hsl(354deg 70% 54%);
+            background-color: white;
+            color: hsl(354deg 70% 54%);
+            cursor: pointer;
+        }
+
+        #button5{
+            background-color: hsl(45deg 100% 52%);
+            color: black;
+        }
+
+        #button5:hover{
+            border: 2px solid hsl(45deg 100% 52%);
+            background-color: white;
+            color: hsl(45deg 100% 52%);
+            cursor: pointer;
+        }
+
+        #button6{
+            background-color: hsl(188deg 80% 40%);
+        }
+
+        #button6:hover{
+            border: 2px solid hsl(188deg 80% 40%);
+            background-color: white;
+            color: hsl(208deg 7% 46%);
+            cursor: pointer;
+        }
+
+        #button7{
+            background-color: hsl(210deg 24% 93%);
+            color: black;
+        }
+
+        #button7:hover{
+            border: 2px solid hsl(210deg 24% 93%);
+            background-color: black;
+            color: hsl(210deg 24% 93%);
+            cursor: pointer;
+        }
+
+        #button8{
+            background-color: hsl(210deg 10% 23%);
+        }
+
+        #button8:hover{
+            border: 2px solid hsl(210deg 10% 23%);
+            background-color: white;
+            color: hsl(210deg 10% 23%);
+            cursor: pointer;
+        }
+
+        #button9{
+            background-color: white;
+            color: hsl(211deg 100% 53%);
+        }
+
+        #button9:hover{
+            border: 2px solid hsl(208deg 7% 46%);
+            background-color: hsl(211deg 100% 53%);
+            color: white;
+            cursor: pointer;
+        }
+
+        #mybutton {
+            padding: 20px 30px 20px;
+            font-size: large;
+            font-weight: 700;
+            background-image: linear-gradient(to top right, rgb(47, 34, 226), rgb(98, 169, 216));
+            color: white;
+            border-radius: 10px;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 5px solid rgb(33, 25, 148);
+            box-shadow: rgba(0, 0, 0, 0.15) 3px 5px 2.6px;
+            position: relative;
+            top: 2px;
+            text-align: center;
+        }
+
+        #mybutton:hover {
+            box-shadow: rgba(0, 0, 0, 0.15) 6px 8px 3px;
+            top: 0;
+            cursor: pointer;
+        }
+
+        #mybutton:active{
+            box-shadow: rgba(0, 0, 0, 0.15) 3px 5px 2.6px;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="button1">Primary</button>
+        <button id="button2">Secondary</button>
+        <button id="button3">Success</button>
+        <button id="button4">Danger</button>
+        <button id="button5">Warning</button>
+        <button id="button6">Info</button>
+        <button id="button7">Light</button>
+        <button id="button8">Dark</button>
+        <button id="button9">Link</button>
+    </div>
+    <div style="background-color: white; height: 110px; text-align: center;">
+        <span>Hover On All Buttons To See Effects <br> Hover and Click On My Button To See Effects</span>
+        <button id="mybutton">My Button</button>
+    </div>
+    
+</body>
+
+</html>

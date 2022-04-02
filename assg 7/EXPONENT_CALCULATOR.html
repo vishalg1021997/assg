@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,17 +6,133 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #top{
+            margin: 70px auto;
+            width: 400px;
+            height: 400px;
+            padding: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            border: 2px solid black;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+        }
+        
+        #textdiv1{
+            position: relative;
+
+        }
+        
+        #label1{
+            position: absolute;
+            background-color: white;
+            font-size: large;
+            color: gray;
+            top: 15px;
+            left: 15px;
+            transition: 0.5s;
+        }
+
+        input:focus ~ #label1{
+            font-size: 15px;    
+            /* position: sticky; */
+            transition: 0.5s;
+            top: -5px;
+            /* display: block; */
+        }
+
+        input:valid + #label1{
+            /* transform: translateY(-15px); */
+            font-size: 15px;   
+            top: -5px;
+        }
+
+        input{
+            /* width: 48%; */
+            width: 180px;
+            height: 50px;
+            text-align: center;
+            /* padding: 20px; */
+            font-size: large;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        
+        #b{
+            border: 0;
+            border-bottom: 2px solid rgb(4, 129, 129);
+            border-radius: 0;
+            outline: none;
+            
+        }
+        button{
+            align-self: flex-start;
+            margin-left: auto;
+            margin-right: auto;
+            /* height: 20px; */
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        p{
+            margin: 0 auto;
+            width: 100%;
+            font-size: larger;
+            text-align: center;
+            color:blueviolet;
+        }
+
+        #mybutton {
+            padding: 20px 30px 20px;
+            font-size: large;
+            font-weight: 700;
+            background-image: linear-gradient(to top right, rgb(47, 34, 226), rgb(98, 169, 216));
+            color: white;
+            border-radius: 10px;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 5px solid rgb(33, 25, 148);
+            box-shadow: rgba(0, 0, 0, 0.15) 3px 5px 2.6px;
+            position: relative;
+            top: 2px;
+            text-align: center;
+        }
+
+        #mybutton:hover {
+            box-shadow: rgba(0, 0, 0, 0.15) 6px 8px 3px;
+            top: 0;
+            cursor: pointer;
+        }
+
+        #mybutton:active{
+            box-shadow: rgba(0, 0, 0, 0.15) 3px 5px 2.6px;
+            transform: translateY(4px);
+        }
+        
+    </style>
 </head>
 <body>
-    <input type="text" placeholder="Enter number a" id="a"> 
-    <input type="text" placeholder="Enter number b" id="b">
-    <button id="myBtn">Click here to find the exponent!</button>
-    <p></p>
+    <div id="top">
+        <div id="textdiv1">
+            <input type="text" placeholder="" id="a" required> 
+            <label for="" id="label1">&nbsp; Enter number a &nbsp;</label>
+        </div>
+        <div id="textdiv1">
+            <input type="text" placeholder="" id="b" required>
+            <label for="" id="label1">&nbsp; Enter number b &nbsp;</label>
+        </div>
+        <button id="mybutton">Click here to find the exponent!</button>
+        <!-- <p>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p> -->
+        <p></p>
+    </div>
 </body>
 <script>
     var a = document.querySelector('#a')
     var b = document.querySelector('#b')
-    var element = document.getElementById("myBtn");
+    var element = document.getElementById("mybutton");
     function calculate(){
         var sum  = 1
         for(i = 0;i< Number(b.value);i++){
@@ -23,7 +140,8 @@
         }
         document.querySelector('p').innerText = 'The Exponent Value of '+a.value+' and '+b.value+' is '+sum
         alert('The Multiplication Value of '+a.value+' and '+b.value+' is '+(Number(a.value)*Number(b.value)))
-    }
+    
+}
     element.addEventListener('click',calculate)
 </script>
 </html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5594c2eb28.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .container{
+            margin: 100px auto;
+            width: 300px;
+            height: 300px;
+            border: 5px solid black;
+            border-radius: 10px;
+            text-align: center;
+            padding: 30px;
+            font-size: 50px;
+            position: relative;
+            
+        }   
+
+        #one{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 125px;
+            top: 45px;
+            display: none;
+        }
+
+        #one>img{
+            width: 100px;
+            height: 100px;
+        }
+
+        .container>h1{
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        #two{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        i {
+            width: 100px;
+            height: 100px;
+            font-size: 100px;
+        }
+
+        i:hover {
+            color: blue;
+            font-size: 120px;
+            cursor: pointer;
+        }
+
+        i:active {
+            font-size: 100px;
+            transform: translate(10px, 10px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div id="one">
+            <img src="https://media2.giphy.com/media/26BRABnerqonwLHMc/giphy.gif" alt="">
+        </div>
+        
+        <h1>0</h1>
+        <div id="two">
+            <i class="fa-solid fa-thumbs-up" id="like"></i>
+            <i class="fa-solid fa-thumbs-down" id="dislike"></i>
+
+        </div>
+    </div>
+    <script>
+
+        var h1 = document.querySelector('h1')
+        var one = document.querySelector('#one')
+        let container = document.querySelector('#container')
+        var like = document.querySelector('#like')
+        var dislike = document.querySelector('#dislike')
+        var count;
+        if(localStorage.getItem('counter') == null){
+            count = 0
+            h1.innerText = count
+        }else{
+            count = localStorage.getItem('counter')
+            h1.innerText = count
+        }
+        function increase(){
+            count++
+            h1.innerText = count
+            localStorage.setItem('counter',count)
+            
+
+            one.style.display = 'block'
+            container.style.backgroundImage = "url(https://media2.giphy.com/media/26BRABnerqonwLHMc/giphy.gif)"
+            setTimeout(none,3000)
+        }
+        function none(){
+            one.style.display = 'none'
+            container.style.backgroundImage = ""
+        }
+
+        function decrease(){
+            count--
+            h1.innerText = count
+            localStorage.setItem('counter',count)
+            
+            one.style.display = 'none'
+            container.style.backgroundImage = ""
+        }
+        like.addEventListener('click',increase)
+        dislike.addEventListener('click',decrease)
+    </script>
+</body>
+<script>
+
+</script>
+</html>

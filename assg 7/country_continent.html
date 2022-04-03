@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: 150px auto;
+            width: 300px;
+            height: 300px;
+            border: 5px solid black;
+            border-radius: 10px;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        select {
+            height: 50px;
+            font-size: 25px;
+            text-align: center;
+            max-height: 250pxd;
+            background-color: rgba(53, 130, 133, 0.548);
+            appearance: none;
+        }
+
+
+        .icon {
+            position: relative;
+        }
+
+        .icon::after {
+            content: "▼";
+            font-size: 20px;
+            top: 15px;
+            right: 20px;
+            position: absolute;
+        }
+
+
+
+        option:nth-child(even) {
+            background-color: rgb(61, 193, 226);
+        }
+
+        option:nth-child(odd) {
+            background-color: rgb(95, 219, 223);
+        }
+
+        option:after {
+            content: " ";
+            height: 5px;
+            width: 5px;
+            background: #c00;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+
+        button {
+            border: 0;
+            margin-top: 20px;
+            border-radius: 50px;
+            font-size: x-large;
+            background: linear-gradient(to left, transparent 50%, #282936 50%) right;
+            background-size: 200%;
+            transition: all .5s ease-in-out;
+        }
+
+        .bticon {
+            color: blue;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            padding: 4px;
+            background-color: #282936;
+            display: inline-block;
+            border-radius: 30px;
+            font-size: xx-large;
+            box-sizing: border-box;
+            margin-right: 10px;
+            margin-left: -10px;
+            transition: padding .5s ease-in-out;
+        }
+
+        .bticon::before {
+            content: "›";
+        }
+
+        button:hover>.bticon::before {
+            content: '-›';
+        }
+
+        span {
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-position: left;
+            color: aqua;
+        }
+
+        button:hover>.bticon {
+            padding-left: 20px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="icon">
+            <select name="" id="countries">
+                <option value="Select">Select</option>
+            </select>
+        </div>
+        <button>
+            <div class="bticon" aria-hidden="true"></div><span>Check</span>
+        </button>
+    </div>
+</body>
+<script>
+    let country = document.querySelector('#countries')
+
+    let arr = ['India', 'United States of America', 'China', 'Nepal', 'Australia', 'France', 'Germany', 'South Africa', 'Nigeria', 'Mexico', 'Argentina', 'Brazil', 'Canada', 'Singapore', 'Sweden']
+    function countrylist(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            var option = document.createElement('option')
+            var value = arr[i]
+            option.setAttribute('value', arr[i])
+            var text = document.createTextNode(arr[i])
+            var div = document.createElement('div')
+            option.append(text)
+            country.append(option)
+        }
+    }
+    countrylist(arr)
+
+    function continent() {
+        switch (country.value) {
+            case 'India':
+            case 'China':
+            case 'Nepal':
+            case 'Singapore':
+                alert('The continent of '+country.value+' is Asia');
+                break;
+            case 'United States of America':
+            case 'Mexico':
+            case 'Canada':
+                alert('The continent of '+country.value+' is North America');
+                break;
+            case 'Australia':
+                alert('The continent of '+country.value+' is Australia');
+                break;
+            case 'France':
+            case 'Germany':
+            case 'Sweden':
+                alert('The continent of '+country.value+' is Europe');
+                break;
+            case 'South Africa':
+            case 'Nigeria':
+                alert('The continent of '+country.value+' is Africa');
+                break;
+            case 'Argentina':
+            case 'Brazil':
+                alert('The continent of '+country.value+' is South America');
+                break;
+            default :
+                alert('Please Select Correct value');
+                break;
+        }
+    }   
+        document.querySelector('button').addEventListener('click', continent)
+
+</script>
+
+</html>

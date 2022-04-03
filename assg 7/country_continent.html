@@ -10,7 +10,7 @@
         .container {
             margin: 150px auto;
             width: 300px;
-            height: 300px;
+            height: 150px;
             border: 5px solid black;
             border-radius: 10px;
             color: white;
@@ -27,6 +27,17 @@
             appearance: none;
         }
 
+        select::-webkit-scrollbar {
+            background-color: rgb(211, 230, 230);
+            box-shadow: inset 0 0 10px grey;
+            border-radius: 50px;
+            width: 15px;
+        }
+
+        select::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 6px rgb(0, 143, 148);
+            border-radius: 50px;
+        }
 
         .icon {
             position: relative;
@@ -43,18 +54,17 @@
 
 
         option:nth-child(even) {
-            background-color: rgb(61, 193, 226);
+            background-color: rgba(53, 130, 133, 0.548);
         }
 
         option:nth-child(odd) {
-            background-color: rgb(95, 219, 223);
+            background-color: rgba(83, 134, 136, 0.548);
         }
 
         option:after {
             content: " ";
             height: 5px;
             width: 5px;
-            background: #c00;
             border-radius: 5px;
             display: inline-block;
         }
@@ -107,7 +117,10 @@
             padding-left: 20px;
         }
 
-        
+        button:active,button:active>.bticon{
+            background: linear-gradient(to left, #4a4b63 50%, #4a4b63 50%) right;
+            background-size: 200%;
+        }
     </style>
 </head>
 
@@ -118,7 +131,7 @@
                 <option value="Select">Select</option>
             </select>
         </div>
-        <button>
+        <button id="btn">
             <div class="bticon" aria-hidden="true"></div><span>Check</span>
         </button>
     </div>
@@ -146,35 +159,35 @@
             case 'China':
             case 'Nepal':
             case 'Singapore':
-                alert('The continent of '+country.value+' is Asia');
+                alert('The continent of ' + country.value + ' is Asia');
                 break;
             case 'United States of America':
             case 'Mexico':
             case 'Canada':
-                alert('The continent of '+country.value+' is North America');
+                alert('The continent of ' + country.value + ' is North America');
                 break;
             case 'Australia':
-                alert('The continent of '+country.value+' is Australia');
+                alert('The continent of ' + country.value + ' is Australia');
                 break;
             case 'France':
             case 'Germany':
             case 'Sweden':
-                alert('The continent of '+country.value+' is Europe');
+                alert('The continent of ' + country.value + ' is Europe');
                 break;
             case 'South Africa':
             case 'Nigeria':
-                alert('The continent of '+country.value+' is Africa');
+                alert('The continent of ' + country.value + ' is Africa');
                 break;
             case 'Argentina':
             case 'Brazil':
-                alert('The continent of '+country.value+' is South America');
+                alert('The continent of ' + country.value + ' is South America');
                 break;
-            default :
+            default:
                 alert('Please Select Correct value');
                 break;
         }
-    }   
-        document.querySelector('button').addEventListener('click', continent)
+    }
+    document.querySelector('button').addEventListener('click', continent)
 
 </script>
 

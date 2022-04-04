@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+        div{
+            margin: 150px auto;
+            background-color: cyan;
+            width: 150px;
+            height: 300px;
+            position: relative;
+            animation: chage_color 5s ease-in-out infinite;
+        }
+
+        #one{
+            background-color: chartreuse;
+            
+        }
+        #one::before{
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: -90px;
+            border-right: 90px solid chartreuse;
+            border-top: 150px solid transparent;
+            border-bottom: 150px solid transparent;
+        }
+
+        #one::after{
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 150px;
+            border-left: 90px solid chartreuse;
+            border-top: 150px solid transparent;
+            border-bottom: 150px solid transparent;
+        }
+
+        #two{
+            width: 300px;
+            height: 300px;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+
+        @keyframes chage_color {
+            0%{
+                filter: hue-rotate(0deg);
+            }
+            100%{
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="one"></div>
+    <div id="two"></div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=di, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 95vh;
+            margin: 0px auto;
+            background-color: black;
+            animation: chage_color 5s linear infinite;
+            overflow: hidden;
+        }
+
+        .row {
+            display: inline-flex;
+            margin-top: -19px;
+            margin-left: -32px;
+        }
+
+        .row:nth-child(even) {
+            margin-left: -1px;
+        }
+
+        .hexagon {
+            width: 60px;
+            height: 60px;
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            background: rgb(24, 23, 23);
+            margin: 1px;
+            position: relative;
+            transition: 2s;
+            /* border: 1px solid rgba(255, 255, 255, 0.1); */
+        }
+
+        .hexagon::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            /* border: 1px solid rgba(255, 255, 255, 0.1); */
+            z-index: 1000;
+        }
+
+        /* .hexagon::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            right: 4px;
+            top: 4px;
+            bottom: 4px;
+            background: rgb(24, 23, 23);
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            z-index: 1;
+        } */
+
+
+        .hexagon:hover {
+            transition: 0s;
+            background: cyan;
+            border: 3px solid cyan;
+        }
+
+        .profile {
+            position: absolute;
+            
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            top: 150px;
+            left: 250px;
+        }
+
+
+        .profile>div,
+        .profile>img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        
+        h1{
+            color: white;
+            position: absolute;
+            top: 250px;
+            left: 600px;
+            animation: 2s anim-lineUp ease-out infinite;
+        }
+        
+        h3{
+            color: white;
+            position: absolute;
+            top: 285px;
+            left: 620px;
+            animation: 2s anim-lineUp ease-out infinite;
+        }
+
+        @keyframes anim-lineUp {
+            0% {
+                opacity: 0;
+                transform: translateY(150%);
+            }
+
+            20% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: translateY(0%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+
+        @keyframes chage_color {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        /* @media all and (min-width:) and (max-width:){
+
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+
+    </div>
+    <div class="profile">
+        
+            <img src="https://lh3.googleusercontent.com/a-/AOh14GjxtemhXlwd-0q0K9mjU54jFf59loCqwSuIBttboMQ=s288-p-rw-no"
+                alt="">
+            </div>
+        
+        <div>
+            <h1>Hi, I'm Vishal Gupta</h1>
+            <h3>Aspiring Software Developer</h3>
+        </div>
+
+    <script>
+        var container = document.querySelector('#container')
+        function create_background() {
+            for (var i = 0; i <= 15; i++) {
+                var row = document.createElement('div')
+                row.setAttribute('class', 'row')
+                for (var j = 0; j <= 25; j++) {
+                    var hexagon = document.createElement('div')
+                    hexagon.setAttribute('class', 'hexagon')
+                    row.append(hexagon)
+                }
+                container.append(row)
+            }
+        }
+        create_background()
+    </script>
+</body>
+
+</html>

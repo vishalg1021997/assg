@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 100%;
+            height: auto;
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #container > div{
+            width: 300px;
+            height: fit-content;
+            border: 2px solid rgb(126, 122, 122);
+            border-radius: 10px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        #container > div > h2{
+            color: blue;
+            font-size: 40px;
+        }
+        
+        h2 + h4{
+            color: green;
+            font-size: 25px;
+        }
+
+        h4 {
+            color: black;
+            font-size: 25px;
+        }
+
+        #dexpenses{
+            color: red;
+        }
+
+        #form{
+            text-align: center;
+            margin: auto;
+            width: 400px;
+            height: fit-content;
+            padding: 50px;
+        }
+
+        input {
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        #submit{
+            padding: 20px;
+            font-size: large;
+            width: 210px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="form">
+        <input type="text" placeholder="Enter Month" id="month">
+        <input type="text" placeholder="Enter Income" id="income">
+        <input type="text" placeholder="Enter Expenses" id="expenses">
+        <input type="submit" id="submit">
+    </form>
+    <div id="container">
+
+    </div>
+    
+</body>
+<script>
+    let month = document.querySelector('#month')
+    let income = document.querySelector('#income')
+    let expenses = document.querySelector('#expenses')
+    let form = document.querySelector('#form')
+    let container = document.querySelector('#container')
+    var count;
+    if(localStorage.length > 0){
+        count = localStorage.length-1
+    }else{
+        count = 0
+    }
+    function calculate(){
+        event.preventDefault()
+        var savings = income.value - expenses.value
+        var arr =[month.value,income.value,expenses.value,savings]
+        console.log(arr)
+        count++
+        var c = 'month'+count
+        localStorage.setItem(c,JSON.stringify(arr))
+        // console.log(month.value)
+        console.log(count+'this is count')
+        console.log('length is '+localStorage.length)
+        let i = 1
+        for(i;i <= count;i++){
+            var card = document.createElement('div')
+            var dmonth = document.createElement('h2')
+            var dincome = document.createElement('h4')
+            var dexpenses = document.createElement('h4')
+            dexpenses.setAttribute('id','dexpenses')
+            var dsavings = document.createElement('h4')
+            var b = 'month'+i
+            var a = JSON.parse(localStorage.getItem(b))
+            console.log(i)
+            console.log(a)
+            console.log(typeof a)
+            console.log(a[0]+' ' +a[1]+' ' +a[2]+' ' +a[3]+' ' +' array list')
+            dmonth.innerText = a[0]
+            dincome.innerText = a[1]
+            dexpenses.innerText = a[2]
+            dsavings.innerText = a[3]
+            card.appendChild(dmonth)
+            card.appendChild(dincome)
+            card.appendChild(dexpenses)
+            card.appendChild(dsavings)
+            container.appendChild(card)
+        }
+        // i = 1
+    }
+// var arr =[month.value,income.value,expenses.value]
+// console.log(arr)
+function clear(){
+    container.innerHTML = ''
+}
+form.addEventListener('submit',clear)
+form.addEventListener('submit',calculate)
+
+</script>
+</html>

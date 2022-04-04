@@ -24,6 +24,7 @@
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             margin: 10px;
             text-align: center;
+            
         }
 
         #container > div > h2{
@@ -53,20 +54,47 @@
             padding: 50px;
         }
 
+        h1{
+            color: blue;
+            text-decoration: underline;
+            text-decoration-color: cornflowerblue ;
+        }
+
         input {
             padding: 20px;
             margin-bottom: 15px;
+            font-size: large;
         }
 
         #submit{
             padding: 20px;
             font-size: large;
-            width: 210px;
+            width: 211px;
+            border: 0;
+            background-color: tomato;
+            border-radius: 5px;
+            transition: all 0.5s ease-in-out;
         }
+        
+        #submit:hover{
+            background-color: white;
+            color: tomato;
+            border: 2px solid tomato;
+            box-shadow: black 5px 5px 10px;
+            transform: translateY(-1px);
+            transition: all 0.2s ease-in-out;
+        }
+        
+        #submit:active{
+            transform: translateY(3px);
+        }
+
+
     </style>
 </head>
 <body>
     <form action="" id="form">
+        <h1>Expense Tracker:</h1>
         <input type="text" placeholder="Enter Month" id="month">
         <input type="text" placeholder="Enter Income" id="income">
         <input type="text" placeholder="Enter Expenses" id="expenses">
@@ -98,8 +126,8 @@
         var c = 'month'+count
         localStorage.setItem(c,JSON.stringify(arr))
         // console.log(month.value)
-        console.log(count+'this is count')
-        console.log('length is '+localStorage.length)
+        // console.log(count+'this is count')
+        // console.log('length is '+localStorage.length)
         let i = 1
         for(i;i <= count;i++){
             var card = document.createElement('div')
@@ -110,10 +138,10 @@
             var dsavings = document.createElement('h4')
             var b = 'month'+i
             var a = JSON.parse(localStorage.getItem(b))
-            console.log(i)
-            console.log(a)
-            console.log(typeof a)
-            console.log(a[0]+' ' +a[1]+' ' +a[2]+' ' +a[3]+' ' +' array list')
+            // console.log(i)
+            // console.log(a)
+            // console.log(typeof a)
+            // console.log(a[0]+' ' +a[1]+' ' +a[2]+' ' +a[3]+' ' +' array list')
             dmonth.innerText = a[0]
             dincome.innerText = a[1]
             dexpenses.innerText = a[2]

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100%;
+            height: 100vh;
+            background: url(bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: imgcolor 2s linear infinite;
+        }
+
+        @keyframes imgcolor {
+            0%{
+                filter: hue-rotate(0deg);
+            }
+            100%{
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        div::before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-image: url(rain.png);
+            animation: rain 0.3s linear infinite;
+        }
+
+        @keyframes rain {
+            0%{
+                /* transform: translate(0); */
+                background-position: 0 0;
+            }   
+            100%{
+                /* transform: translate(20%,100%); */
+                background-position: 20% 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

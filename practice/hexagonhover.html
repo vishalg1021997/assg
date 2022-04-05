@@ -20,6 +20,7 @@
             background-color: black;
             animation: chage_color 5s linear infinite;
             overflow: hidden;
+            /* border :10px solid green; */
         }
 
         .row {
@@ -50,7 +51,7 @@
             height: 100%;
             background: rgba(255, 255, 255, 0.1);
             /* border: 1px solid rgba(255, 255, 255, 0.1); */
-            z-index: 1000;
+            /* z-index: 1000; */
         }
 
         /* .hexagon::after {
@@ -74,12 +75,12 @@
 
         .profile {
             position: absolute;
-            
+            /* border: 3px solid red; */
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            top: 150px;
-            left: 250px;
+            top: 15%;
+            left: 20%;
         }
 
 
@@ -88,6 +89,7 @@
             width: 300px;
             height: 300px;
             border-radius: 50%;
+            /* z-index: 1; */
         }
         
         h1{
@@ -96,34 +98,43 @@
             top: 250px;
             left: 600px;
             animation: 2s anim-lineUp ease-out infinite;
+            /* -webkit-text-stroke: 1px rebeccapurple; */
+            font-size: 50px;
         }
         
         h3{
-            color: white;
+            color: white  !important;
             position: absolute;
-            top: 285px;
+            top: 295px;
             left: 620px;
             animation: 2s anim-lineUp ease-out infinite;
+            font-size: xx-large;
+            /* z-index: 0; */
+            /* -webkit-text-stroke: 2px rebeccapurple; */
         }
 
         @keyframes anim-lineUp {
             0% {
                 opacity: 0;
-                transform: translateY(150%);
+                /* transform: translateY(150%); */
+                transform: translateX(-40%);
             }
 
             20% {
-                opacity: 0;
+                /* opacity: 0; */
             }
 
             50% {
                 opacity: 0.5;
-                transform: translateY(0%);
+                /* transform: translateY(0%); */
             }
 
             100% {
                 opacity: 1;
-                transform: translateY(0%);
+                /* transform: translateY(0%); */
+                transform: translateX(0);
+                
+            /* -webkit-text-fill-color: cyan; */
             }
         }
 
@@ -145,6 +156,11 @@
 </head>
 
 <body>
+    <!-- <div class="container">
+        <input type="checkbox" id="toggle" />
+        <label for="toggle">TOGGLE</label>
+    </div> -->
+
     <div class="container" id="container">
 
     </div>
@@ -152,12 +168,13 @@
         
             <img src="https://lh3.googleusercontent.com/a-/AOh14GjxtemhXlwd-0q0K9mjU54jFf59loCqwSuIBttboMQ=s288-p-rw-no"
                 alt="">
+                <!-- hello -->
             </div>
         
-        <div>
+        <!-- <div>
             <h1>Hi, I'm Vishal Gupta</h1>
             <h3>Aspiring Software Developer</h3>
-        </div>
+        </div> -->
 
     <script>
         var container = document.querySelector('#container')

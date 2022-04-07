@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            height: fit-content;
+            /* border: 1px solid black; */
+        }
+
+        form {
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: max-content;
+            height: max-content;
+            border: 1px solid saddlebrown;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        input {
+            box-sizing: content-box;
+            padding: 20px;
+            font-size: x-large;
+            margin-bottom: 20px;
+
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        #submit {
+            width: 295px;
+            background-color: #ff9f00;
+            color: white;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <form action="" id="login_sign_up_form">
+            <input type="email" placeholder="Enter Your Email" id="email">
+            <input type="number" placeholder="Enter  Your Phone number" id="number">
+            <input type="password" placeholder="Enter your Password" id="password">
+            <input type="Submit" value="Sign Up" id="submit">
+            <span><label for="" id="label">Already have account? </label><a href="" id="click_here">Click
+                    Here!</a></span>
+        </form>
+    </div>
+</body>
+<script>
+    var login_sign_up_form = document.querySelector('#login_sign_up_form')
+    var email = document.querySelector('#email')
+    var number = document.querySelector('#number')
+    var password = document.querySelector('#password')
+    var submit = document.querySelector('#submit')
+    var label = document.querySelector('#label')
+
+    document.querySelector('#click_here').addEventListener('click', function () {
+        event.preventDefault()
+        if (number.style.display == 'none') {
+            number.style.display = 'inline-block'
+            submit.value = 'Sign Up'
+            label.textContent = 'Already have account? '
+        } else {
+            number.style.display = 'none'
+            submit.value = 'Log In'
+            label.textContent = 'Create Account! '
+        }
+    })
+
+    function sign_up() {
+        event.preventDefault()
+        if (localStorage.getItem(email.value) === null && email.value.includes('@') == true && number.value != '' && password.value != '') {
+            localStorage.setItem(email.value, JSON.stringify({ email: email.value, number: number.value, password: password.value }))
+            email.value = ''
+            number.value = ''
+            password.value = ''
+            alert('Account Created Sucessfully')
+            number.style.display = 'none'
+            submit.value = 'Log In'
+            label.textContent = 'Create Account! '
+        } else {
+            alert('Fill All Correct Details')
+        }
+    }
+
+    function log_in() {
+        event.preventDefault()
+        if (localStorage.getItem(email.value) === null) {
+            alert('Invalid Credentials')
+        } else {
+            var check_email = JSON.parse(localStorage.getItem(email.value)).email
+            var check_password = JSON.parse(localStorage.getItem(email.value)).password
+
+            if (email.value.includes('@') == false || check_password != password.value) {
+                alert('Invalid Credentials')
+            } else if (check_email === email.value && check_password === password.value) {
+                alert('Login Sucessfull')
+            }
+        }
+    }
+
+    login_sign_up_form.addEventListener('submit',function(){
+        if (number.style.display == 'none') {
+            log_in()
+        } else {
+            sign_up()
+        }
+    })
+
+
+</script>
+
+</html>

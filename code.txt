@@ -3,3 +3,5 @@ online tutorials -> scroll effect(
 https://www.youtube.com/watch?v=X8NFkUQNeek  //part 1
 https://www.youtube.com/watch?v=QqAY7odrfEM  //part2
 )
+
+SSHKEY(https://www.hackdeploy.com/how-to-fix-permission-denied-publickey-github-error/)

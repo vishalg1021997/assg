@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        .stop-scrolling {
+
+            height: 100%;
+
+            overflow: hidden;
+
+        }
+
+        #view_login_page {
+            display: none;
+            position: absolute;
+            /* top: 10%; */
+            /* left: 40%; */
+            /* width: fit-content; */
+            /* height: fit-content; */
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        /* #view_login_page::after{
+            content: '❌';
+            display: flex;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+        } */
+
+        /* #view_login_page:active {
+            display: none;
+        } */
+
+        #view_login_page>object {
+            width: 401px;
+            height: 450px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+
+
+        #navbar {
+            width: 100%;
+            height: 60px;
+            background-color: rgb(1, 8, 70);
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: white;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        #navbar>div {
+            display: flex;
+            justify-content: space-around;
+            width: 25%;
+        }
+
+        #navbar>div>h3 {
+            cursor: pointer;
+        }
+
+        #container {
+            display: grid;
+            /* flex-wrap: wrap; */
+            width: 100%;
+            padding: 20px;
+            padding-top: 90px;
+            /* justify-content: space-evenly; */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            /* grid-template-columns: repeat(auto-fill,minmax(20%,1fr)); */
+            gap: 30px;
+            background-color: rgb(193, 195, 209);
+        }
+
+        #container>div {
+            text-align: center;
+            height: 330px;
+            background-color: white;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border-radius: 10px;
+        }
+
+        #container>div>h4 {
+            align-items: center;
+            margin: 10px;
+
+        }
+
+        #container>div>div {
+            background-color: #fb641b;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            /* margin-top: 10px; */
+            align-items: center;
+            text-align: center;
+            /* font-size: 18px; */
+
+        }
+
+        #container>div>div>div {
+            width: 50%;
+            text-align: center;
+            font-size: x-large;
+            font-weight: 600;
+        }
+
+        #container>div>div>button {
+            width: 50%;
+            height: 100%;
+            font-weight: 700;
+            font-size: 18px;
+            background-color: #ff9f00;
+            border: 0;
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="view_login_page"></div>
+    <nav id="navbar">
+        <div>
+            <h3>Home</h3>
+            <h3>Men</h3>
+            <h3>Women</h3>
+        </div>
+        <div>
+            <h3>User Name</h3>
+            <h3 id="getlogin">Sign Up</h3>
+            <h3>Cart</h3>
+        </div>
+    </nav>
+    <div id="container">
+
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

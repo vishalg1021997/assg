@@ -1,3 +1,4 @@
+//Mens Product Data
 var mensData = [
 
     {
@@ -254,42 +255,577 @@ var mensData = [
     },
 ];
 
+//Womens Product Data
+var womensData = [
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2296/reebok_GL2296_1.jpg.plp",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GV5726/reebok_GV5726_1.jpg.plp",
+      name: "WOMEN'S REEBOK POLYTIGHT",
+      price: 1249,
+      strikedoffprice: 1749,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GT2338/reebok_GT2338_1.jpg.plp",
+      name: "WOMEN'S REEBOK SLEEVE TEE",
+      price: 699,
+      strikedoffprice: 1245,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2841/adidas_GL2841_1.jpg.plp",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2842/adidas_GL2842_1.jpg.plp",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GK6777/reebok_GK6777_1.jpg.plp",
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM3404/adidas_GM3404_1.jpg.plp",
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL5609/reebok_GL5609_1.jpg.plp",
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GK6777/reebok_GK6777_1.jpg.plp",
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GT2355/reebok_GT2355_1.jpg.plp",
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM3404/adidas_GM3404_1.jpg.plp",
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM5610/reebok_GM5610_1.jpg.plp",
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FQ5266/UNISEX_TRAINING_BAGS_FQ5266_1.jpg.plp",
+      name: "UNISEX REEBOK TRAINING ACTIVE CORE BACKPACK - MEDIUM",
+      price: 949,
+      strikedoffprice: 1899,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2296/reebok_GL2296_1.jpg.plp",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GV5726/reebok_GV5726_1.jpg.plp",
+      name: "WOMEN'S REEBOK POLYTIGHT",
+      price: 1249,
+      strikedoffprice: 1749,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GT2338/reebok_GT2338_1.jpg.plp",
+      name: "WOMEN'S REEBOK SLEEVE TEE",
+      price: 699,
+      strikedoffprice: 1245,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2841/adidas_GL2841_1.jpg.plp",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2842/adidas_GL2842_1.jpg.plp",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GK6777/reebok_GK6777_1.jpg.plp",
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM3404/adidas_GM3404_1.jpg.plp",
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL5609/reebok_GL5609_1.jpg.plp",
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GK6777/reebok_GK6777_1.jpg.plp",
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GT2355/reebok_GT2355_1.jpg.plp",
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM3404/adidas_GM3404_1.jpg.plp",
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM5610/reebok_GM5610_1.jpg.plp",
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FQ5266/UNISEX_TRAINING_BAGS_FQ5266_1.jpg.plp",
+      name: "UNISEX REEBOK TRAINING ACTIVE CORE BACKPACK - MEDIUM",
+      price: 949,
+      strikedoffprice: 1899,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2296/reebok_GL2296_1.jpg.plp",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GV5726/reebok_GV5726_1.jpg.plp",
+      name: "WOMEN'S REEBOK POLYTIGHT",
+      price: 1249,
+      strikedoffprice: 1749,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GT2338/reebok_GT2338_1.jpg.plp",
+      name: "WOMEN'S REEBOK SLEEVE TEE",
+      price: 699,
+      strikedoffprice: 1245,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2841/adidas_GL2841_1.jpg.plp",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2842/adidas_GL2842_1.jpg.plp",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GK6777/reebok_GK6777_1.jpg.plp",
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM3404/adidas_GM3404_1.jpg.plp",
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL5609/reebok_GL5609_1.jpg.plp",
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GK6777/reebok_GK6777_1.jpg.plp",
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GT2355/reebok_GT2355_1.jpg.plp",
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM3404/adidas_GM3404_1.jpg.plp",
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM5610/reebok_GM5610_1.jpg.plp",
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FQ5266/UNISEX_TRAINING_BAGS_FQ5266_1.jpg.plp",
+      name: "UNISEX REEBOK TRAINING ACTIVE CORE BACKPACK - MEDIUM",
+      price: 949,
+      strikedoffprice: 1899,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2296/reebok_GL2296_1.jpg.plp",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GV5726/reebok_GV5726_1.jpg.plp",
+      name: "WOMEN'S REEBOK POLYTIGHT",
+      price: 1249,
+      strikedoffprice: 1749,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GT2338/reebok_GT2338_1.jpg.plp",
+      name: "WOMEN'S REEBOK SLEEVE TEE",
+      price: 699,
+      strikedoffprice: 1245,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2841/adidas_GL2841_1.jpg.plp",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2842/adidas_GL2842_1.jpg.plp",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GK6777/reebok_GK6777_1.jpg.plp",
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM3404/adidas_GM3404_1.jpg.plp",
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL5609/reebok_GL5609_1.jpg.plp",
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GK6777/reebok_GK6777_1.jpg.plp",
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GT2355/reebok_GT2355_1.jpg.plp",
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM3404/adidas_GM3404_1.jpg.plp",
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM5610/reebok_GM5610_1.jpg.plp",
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FQ5266/UNISEX_TRAINING_BAGS_FQ5266_1.jpg.plp",
+      name: "UNISEX REEBOK TRAINING ACTIVE CORE BACKPACK - MEDIUM",
+      price: 949,
+      strikedoffprice: 1899,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2296/reebok_GL2296_1.jpg.plp",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GV5726/reebok_GV5726_1.jpg.plp",
+      name: "WOMEN'S REEBOK POLYTIGHT",
+      price: 1249,
+      strikedoffprice: 1749,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GT2338/reebok_GT2338_1.jpg.plp",
+      name: "WOMEN'S REEBOK SLEEVE TEE",
+      price: 699,
+      strikedoffprice: 1245,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2841/adidas_GL2841_1.jpg.plp",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL2842/adidas_GL2842_1.jpg.plp",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GK6777/reebok_GK6777_1.jpg.plp",
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM3404/adidas_GM3404_1.jpg.plp",
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GL5609/reebok_GL5609_1.jpg.plp",
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GK6777/reebok_GK6777_1.jpg.plp",
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GT2355/reebok_GT2355_1.jpg.plp",
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM3404/adidas_GM3404_1.jpg.plp",
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GM5610/reebok_GM5610_1.jpg.plp",
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FQ5266/UNISEX_TRAINING_BAGS_FQ5266_1.jpg.plp",
+      name: "UNISEX REEBOK TRAINING ACTIVE CORE BACKPACK - MEDIUM",
+      price: 949,
+      strikedoffprice: 1899,
+    },
+  ];
+
+
+// Variable Created For Login Page
 var view_login_page = document.querySelector('#view_login_page')
-var view_container = document.querySelector('object')
+var login_sign_up_form = document.querySelector('#login_sign_up_form')
+var form = document.querySelector('form')
+var email = document.querySelector('#email')
+var number = document.querySelector('#number')
+var password = document.querySelector('#password')
+var submit = document.querySelector('#submit')
+var label = document.querySelector('#label')
+
+// Variable Created For Nav Bar
 var navbar = document.querySelector('#navbar')
-var container = document.querySelector('#container')
+var get_user = document.querySelector('#get_user')
 var get_login = document.querySelector('#getlogin')
-var cart; //= []
+
+//Variable Created For Container
+var container = document.querySelector('#container')
 
 
-window.addEventListener('mouseup',function(e){
-    if(e.target != view_container ){
-        view_login_page.style.display = 'none';
-        navbar.style.background = 'rgb(1, 8, 70)';
-        // navbar.style.opacity = 1
-        // container.style.opacity = 1
+// Function To Load Login And Sign Up Page
+function load_login() {
+    if (get_login.innerText == 'Log Out') {                 //Condition To Prevent Opening Of Login Page
+        alert('Logget Out Sucessfully')                     //If User Is Already Login
+        get_login.innerText = 'Sign Up'
+        get_user.innerText = 'User Name'
+    } else {
+        view_login_page.style.display = 'flex'
+        navbar.style.background = 'rgba(1, 8, 70,0.5)';
+        document.body.classList.add("stop-scrolling");       //To Stop Scrolling Of The Page
     }
-}); 
-
-function load_login(){
-    view_login_page.style.display = 'flex'
-    view_login_page.innerHTML = '<object  data="login_signup.html"> </object>'
-    navbar.style.background = 'rgba(1, 8, 70,0.5)';
-    document.body.classList.add("stop-scrolling");
-    // document.getElementsByTagName("body").style.overflow = 'hidden'
-    // container.style.background = 'rgba(193, 195, 209,0.5)';
-    // navbar.style.opacity = 0.5
-    // container.style.opacity = 0.5
-    // view_login_page.style.opacity = 1
 }
 
-get_login.addEventListener('click',load_login)
+get_login.addEventListener('click', load_login) 
 
+
+// Function To Close Login Page If Clicked Out Side The Form
+window.addEventListener('mouseup', function (e) {
+    if (e.target != login_sign_up_form && e.target.parentNode != login_sign_up_form && e.target != click_here) {
+        view_login_page.style.display = 'none';
+        navbar.style.background = 'rgb(1, 8, 70)';
+        document.body.classList.remove('stop-scrolling')         //To Start Scrolling Of The Page
+    }
+});
+
+
+//Function To Toggle Between Sign Up Page And Log In Page In Same Form Using Same Elements
+document.querySelector('#click_here').addEventListener('click', function () {
+    event.preventDefault()
+    if (number.style.display == 'none') {
+        number.style.display = 'inline-block'
+        submit.value = 'Sign Up'
+        label.textContent = 'Already have account? '
+    } else {
+        number.style.display = 'none'
+        submit.value = 'Log In'
+        label.textContent = 'Create Account! '
+    }
+})
+
+//Function For Calling Login And Sign Up Page According To The Contents In The Form
+login_sign_up_form.addEventListener('submit', function () {
+    if (number.style.display == 'none') {
+        log_in()
+    } else {
+        sign_up()
+    }
+})
+
+//Function To Validate Details And Store Data In Local Storage To Create Account
+function sign_up() {
+    event.preventDefault()
+    if (localStorage.getItem(email.value) === null && email.value.includes('@') == true && number.value != '' && password.value != '') {
+        localStorage.setItem(email.value, JSON.stringify({ email: email.value, number: number.value, password: password.value,user_cart:[] }))
+        email.value = ''
+        number.value = ''
+        password.value = ''
+        alert('Account Created Sucessfully')
+        number.style.display = 'none'
+        submit.value = 'Log In'
+        label.textContent = 'Create Account! '
+    } else {
+        alert('Fill All Correct Details')
+    }
+}
+
+//Function To Validate Details And Retrive Data From Local Storage To Login To Account
+function log_in() {
+    event.preventDefault()
+    if (localStorage.getItem(email.value) === null) {
+        alert('Invalid Credentials')
+    } else {
+        var check_email = JSON.parse(localStorage.getItem(email.value)).email
+        var check_password = JSON.parse(localStorage.getItem(email.value)).password
+
+        if (email.value.includes('@') == false || check_password != password.value) {
+            alert('Invalid Credentials')
+        } else if (check_email === email.value && check_password === password.value) {
+            get_user.innerText = email.value
+            view_login_page.style.display = 'none';
+            get_login.innerText = 'Log Out'
+            navbar.style.background = 'rgb(1, 8, 70)';
+            document.body.classList.remove('stop-scrolling')
+            alert('Login Sucessfull')
+        }
+    }
+}
+
+//Function To Create Cards To Display Product
 function list_data(data) {
-    data.forEach((element,i) => {
+    data.forEach((element, i) => {
         var data_card = document.createElement('div')
-        // var product_img = document.createElement('img')
-        // var product_name = document.createElement('h4')
         var create_card =
             `
             <img src='${element.image_url}'>
@@ -301,17 +837,20 @@ function list_data(data) {
             `
         data_card.innerHTML = create_card
         container.append(data_card)
-        var add_to_cart = document.querySelector('.add_to_cart'+i)
+        var add_to_cart = document.querySelector('.add_to_cart' + i)
         add_to_cart.addEventListener('click', function () {
-            //cart.push(element)
-            cart = element
-            console.log(cart)
-            alert('sucessfull')
-            var a = JSON.parse(localStorage.getItem('test@test'))
-            a.cart = cart
-            console.log(a)
-            localStorage.setItem('test2@test',JSON.stringify(a))
-
+            if (get_user.innerText == 'User Name') {
+                alert('You Are Not Logged In Please Login!')
+            } else {
+                cart = element
+                console.log(cart)
+                alert('sucessfull')
+                var a = JSON.parse(localStorage.getItem(get_user.innerText))
+                console.log(a)
+                    a.user_cart.push(element)
+                    console.log(a)
+                localStorage.setItem(get_user.innerText, JSON.stringify(a))
+            }
         })
     });
 }

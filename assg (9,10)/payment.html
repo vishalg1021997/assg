@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #payment_page {
+            display: flex;
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(156, 150, 150, 0.192);
+            border-radius: 10px;
+            top: 0;
+            left: 0;
+            /* z-index: 0; */
+        }
+
+        #payment_page>div {
+            position: relative;
+        }
+
+        #payment_form {
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: max-content;
+            height: max-content;
+            border: 1px solid saddlebrown;
+            border-radius: 10px;
+            padding: 30px;
+            background-color: white;
+        }
+
+        #payment_form>div {
+            position: relative;
+        }
+
+        label {
+            position: absolute;
+            left: 12px;
+            top: 10px;
+            color: gray;
+        }
+
+        .pay_input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 0;
+            border-bottom: 2px solid #fb641b;
+            outline: none;
+            font-size: 17px;
+        }
+
+        .pay_input:focus~label {
+            font-size: 12px;
+            top: -7px;
+            transition: all 0.5s;
+            color: black;
+        }
+
+        .pay_input:valid~label {
+            font-size: 12px;
+            top: -7px;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        #card_holder,
+        #card_number {
+            width: 250px;
+        }
+
+        #card_month {
+            width: 30px;
+        }
+
+        #card_year {
+            width: 50px;
+        }
+
+        #card_cvv {
+            width: 50px;
+        }
+
+        #captcha {
+            width: 115px;
+            margin: 10px;
+        }
+
+        #get_captcha {
+            text-align: center;
+            font-size: x-large;
+            position: static;
+            display: inline-block;
+            width: 80px;
+        }
+
+        #pay {
+            border: 2px solid #ff9f00;
+            background: linear-gradient(to left, transparent 50%, #ff9f00 50%) right;
+            background-size: 200%;
+            padding: 20px;
+            width: 100%;
+            margin-top: 10px;
+            font-size: x-large;
+            color: #ff9f00;
+            transition: all .5s ease-in-out;
+        }
+
+        #pay:hover {
+            background-position: left;
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>asdfghujikol</h1>
+    <div id="payment_page">
+        <div>
+            <form action="" id="payment_form">
+                <div>
+                    <input type="text" id="card_holder" class="pay_input" required>
+                    <label for="card_holder" id="a">Enter Card Holder Name</label>
+                </div>
+
+                <div>
+                    <input type="number" id="card_number" class="pay_input" required>
+                    <label for="card_number">Enter Card Number</label>
+                </div>
+                <div style="display: flex; justify-content: space-between;width: 250px;position: relative;">
+
+                    <div id="" style="position: relative;">
+                        <input type="number" id="card_month" class="pay_input" required>
+                        <label for="card_month">MM</label>
+                    </div>
+
+                    <div style="position: relative;">
+                        <input type="number" id="card_year" class="pay_input" required>
+                        <label for="card_year">YYYY</label>
+                    </div>
+
+                    <div style="position: relative;">
+                        <input type="number" id="card_cvv" class="pay_input" required>
+                        <label for="card_cvv">CVV</label>
+                    </div>
+
+                </div>
+                <div>
+                    <label for="" id="get_captcha"></label>
+                    <button for="get_captcha" id="refresh_captcha"  style="padding: 5px;font-weight: bold;"> ⟲ </button>
+                    <input type="number" id="captcha" placeholder="Enter captcha" class="pay_input">
+                </div>
+
+                <input type="submit" id="pay" value="Make Payment">
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    var payment_form = document.querySelector('#payment_form')
+    var card_holder = document.querySelector('#card_holder')
+    var card_number = document.querySelector('#card_number')
+    var card_month = document.querySelector('#card_month')
+    var card_year = document.querySelector('#card_year')
+    var card_cvv = document.querySelector('#card_cvv')
+    var get_captcha = document.querySelector('#get_captcha')
+    var refresh_captcha = document.querySelector('#refresh_captcha')
+    var captcha = document.querySelector('#captcha')
+    var year = new Date().getFullYear()
+    var month = new Date().getMonth() + 1
+    console.log(year, month)
+
+    function validate_payment() {
+        event.preventDefault()
+        if (card_holder.value === '') {
+            alert('Please Enter Card Name')
+            create_captcha()
+        } else if (card_number.value.length != 16) {
+            alert('Please Enter Valid Card Number')
+            create_captcha()
+        } else if (card_month.value < 0 && card_month.value <= 12) {
+            alert('Please Enter Valid Card Expiry Month')
+            create_captcha()
+        } else if (card_year.value < year || (card_year.value == year && card_month.value < month)){
+            alert('Please Enter Valid Month And Year Of Card')
+            create_captcha()
+        } else if (card_cvv.value.length != 3) {
+            alert('Please Enter Valid CVV Code')
+            create_captcha()
+        }else if(captcha.value != get_captcha.innerText){
+            alert('Wrong Captcha')
+            create_captcha()
+        }else{
+            alert('Payment Sucessfull')
+        }
+    }
+
+    function create_captcha() {
+        
+        var captcha_code = Math.floor(Math.random() * (9999 - 1000)) + 1000;
+        get_captcha.innerText = captcha_code
+    }
+
+    create_captcha()
+    refresh_captcha.addEventListener('click', () => {
+        event.preventDefault()
+        create_captcha()
+    })
+    payment_form.addEventListener('submit', validate_payment)
+
+</script>
+
+</html>
+
+<!-- input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        } -->

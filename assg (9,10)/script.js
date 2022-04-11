@@ -727,12 +727,40 @@ var label = document.querySelector('#label')
 
 // Variable Created For Nav Bar
 var navbar = document.querySelector('#navbar')
+var home = document.querySelector('#home')
+var men = document.querySelector('#men')
+var women = document.querySelector('#women')
 var get_user = document.querySelector('#get_user')
 var get_login = document.querySelector('#getlogin')
+var cart = document.querySelector('#cart')
 
 //Variable Created For Container
 var container = document.querySelector('#container')
 
+//Variable Created For Cart
+var cart_container = document.querySelector('#cart_container')
+var product_division = document.querySelector('#product_division')
+var summary_division = document.querySelector('#summary_division')
+var summary_division_1 = document.querySelector('#summary_division_1')
+var summary_division_2 = document.querySelector('#summary_division_2')
+var summary_division_3 = document.querySelector('#summary_division_3')
+var total_items = document.querySelector('#total_items')
+var total = document.querySelector('#total')
+var checkout = document.querySelector('#checkout')
+
+//Variable Created For Payment Page
+var payment_page = document.querySelector('#payment_page')
+var payment_form = document.querySelector('#payment_form')
+var card_holder = document.querySelector('#card_holder')
+var card_number = document.querySelector('#card_number')
+var card_month = document.querySelector('#card_month')
+var card_year = document.querySelector('#card_year')
+var card_cvv = document.querySelector('#card_cvv')
+var get_captcha = document.querySelector('#get_captcha')
+var refresh_captcha = document.querySelector('#refresh_captcha')
+var captcha = document.querySelector('#captcha')
+var year = new Date().getFullYear()
+var month = new Date().getMonth() + 1
 
 // Function To Load Login And Sign Up Page
 function load_login() {
@@ -824,12 +852,17 @@ function log_in() {
 
 //Function To Create Cards To Display Product
 function list_data(data) {
+    cart_container.style.display = 'none'
+    container.style.display = 'grid'
+    container.innerHTML = ''
     data.forEach((element, i) => {
         var data_card = document.createElement('div')
         var create_card =
             `
             <img src='${element.image_url}'>
-            <h4>${element.name}</h4>
+            <div style='width:100%;height:36px;overflow:hidden;background-color: white;display:block; '>
+                <h4>${element.name}</h4>
+            </div>
             <div>
                 <div>₹ ${element.price}</div>
                 <button class='add_to_cart${i}'>Add To Cart</button>
@@ -845,7 +878,7 @@ function list_data(data) {
             } else {
                 //console.log(cart)
                 alert('sucessfull')
-                var a = JSON.parse(localStorage.getItem(get_user.innerText))  
+                var a = JSON.parse(localStorage.getItem(get_user.innerText))
                 //console.log(a)                                    //Data Is Retrived From The Local Storage Temproray
                 a.user_cart.push(element)                          //Stored In var a And Cart Data Is Pushed To user_cart
                 //console.log(a)                                  //And The Whole User Data Is replaced With The New Data
@@ -855,5 +888,160 @@ function list_data(data) {
     });
 }
 
+function get_cart_data() {
+    if (get_user.innerText == 'User Name') {
+        alert('You Are Not Logged In Please Login!')
+    } else {
+        container.style.display = 'none'
+        cart_container.style.display = 'flex'
+        product_division.innerHTML = ''
+        document.body.classList.add("stop-scrolling");
+        var sum = 0
+        var get_user_cart_data = JSON.parse(localStorage.getItem(get_user.innerText))
+        // var get_user_cart_data = JSON.parse(localStorage.getItem('test2@test'))
+        total_items.innerText = get_user_cart_data.user_cart.length
+        get_user_cart_data.user_cart.forEach((element, i) => {
+            console.log(element)
+            sum += Number(element.price)
+            var data_card = document.createElement('div')
+            var create_card =
+                `
+            <img src='${element.image_url}'>
+            <div style='width:100%;height:36px;overflow:hidden;background-color: white;display:block; '>
+                <h4>${element.name}</h4>
+            </div>
+            <div>
+                <div>₹ ${element.price}</div>
+                <button class='remove_item${i}'>Remove Item</button>
+            </div>
+            `
+            data_card.innerHTML = create_card
+            product_division.append(data_card)
 
-list_data(mensData)
+            var summary_card = document.createElement('div')
+            summary_card.style.display = 'flex'
+            summary_card.style.padding = '5px'
+            summary_card.style.alignItems = 'center'
+            summary_card.style.justifyContent = 'space-between'
+            var summary_data =
+                `
+                <img src='${element.image_url}' style='width:60px;height:60px'>
+                <!-- <div style='width:100%;height:36px;overflow:hidden;background-color: white;display:block; '>  
+                </div> -->
+                <h5>${element.name}</h5>
+                <!-- <div>
+                </div> -->
+                <div>
+                ₹${element.price}
+                </div>
+            `
+            summary_card.innerHTML = summary_data
+            summary_division_2.append(summary_card)
+            var remove_item = document.querySelector('.remove_item' + i)
+            remove_item.addEventListener('click', function () {
+                get_user_cart_data.user_cart.splice(i, 1)
+                localStorage.setItem(get_user.innerText, JSON.stringify(get_user_cart_data));
+                
+                //    window.location.reload();
+                get_cart_data()
+            })
+
+        });
+        total.innerText = sum
+    }
+}
+
+
+
+document.querySelector('#promo').addEventListener('click', () => {
+    document.querySelector('#display_promo').style.display = 'flex'
+})
+
+document.querySelector('#cancel').addEventListener('click', () => {
+    document.querySelector('#display_promo').style.display = 'none'
+})
+
+document.querySelector('#apply').addEventListener('click', () => {
+    var promo_code = document.querySelector('#promo_code')
+    console.log(promo_code.value)
+    if (promo_code.value == 'MASAI30') {
+        var percent = (30 / 100) * Number(total.innerText)
+        total.innerText = Math.floor(total.innerText - percent)
+        alert('Promo Applied Sucessfully')
+        document.querySelector('#display_promo').style.display = 'none'
+    } else {
+        alert('Wrong Promo Code!')
+    }
+
+})
+
+function capital() {
+    var x = document.getElementById("promo_code");
+    x.value = x.value.toUpperCase();
+}
+
+
+function validate_payment() {
+    event.preventDefault()
+    // payment_page.style.display = 'flex'
+    if (card_holder.value === '') {
+        alert('Please Enter Card Name')
+        create_captcha()
+    } else if (card_number.value.length != 16) {
+        alert('Please Enter Valid Card Number')
+        create_captcha()
+    } else if (card_month.value < 0 && card_month.value <= 12) {
+        alert('Please Enter Valid Card Expiry Month')
+        create_captcha()
+    } else if (card_year.value < year || (card_year.value == year && card_month.value < month)){
+        alert('Please Enter Valid Month And Year Of Card')
+        create_captcha()
+    } else if (card_cvv.value.length != 3) {
+        alert('Please Enter Valid CVV Code')
+        create_captcha()
+    }else if(captcha.value != get_captcha.innerText){
+        alert('Wrong Captcha')
+        create_captcha()
+    }else{
+        alert('Payment Sucessfull')
+        card_holder.value = ''
+        card_number.value = ''
+        card_month.value = ''
+        card_year.value = ''
+        card_cvv.value = ''
+        captcha.value = ''
+        var get_user_cart_data = JSON.parse(localStorage.getItem(get_user.innerText))
+        get_user_cart_data.user_cart = []
+        localStorage.setItem(get_user.innerText, JSON.stringify(get_user_cart_data));
+        summary_division_2.innerHTML = ''
+        get_cart_data()
+        payment_page.style.display = 'none'
+        // 1111111111111111
+    }
+}
+
+function create_captcha() {
+    
+    var captcha_code = Math.floor(Math.random() * (9999 - 1000)) + 1000;
+    get_captcha.innerText = captcha_code
+}
+
+create_captcha()
+refresh_captcha.addEventListener('click', () => {
+    event.preventDefault()
+    create_captcha()
+})
+
+checkout.addEventListener('click',() => {
+    payment_page.style.display = 'flex'
+    document.querySelector('#final_amount').innerText = 'Your Total Payable Amount is ₹ '+ total.innerText
+})
+
+payment_form.addEventListener('submit', validate_payment)
+
+
+
+men.addEventListener('click', () => { list_data(mensData) })
+women.addEventListener('click', () => { list_data(womensData) })
+cart.addEventListener('click', get_cart_data)
+// list_data(mensData)

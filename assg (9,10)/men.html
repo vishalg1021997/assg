@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="payment.css">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        .stop-scrolling {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #view_login_page {
+            display: none;
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(0 0 0 / 49%);
+            border-radius: 10px;
+        }
+
+        form {
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: max-content;
+            height: max-content;
+            border: 1px solid saddlebrown;
+            border-radius: 10px;
+            padding: 30px;
+            background-color: white;
+        }
+
+        input {
+            box-sizing: content-box;
+            padding: 20px;
+            font-size: x-large;
+            margin-bottom: 20px;
+        }
+
+        #submit {
+            width: 295px;
+            background-color: #ff9f00;
+            color: white;
+            border: 0;
+            cursor: pointer;
+        }
+
+        #view_login_page>object {
+            width: 401px;
+            height: 450px;
+            /* background-color: white; */
+            border-radius: 10px;
+        }
+
+        #navbar {
+            width: 100%;
+            height: 60px;
+            background-color: rgb(1, 8, 70);
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: white;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        #navbar>div {
+            display: flex;
+            justify-content: space-around;
+            width: 25%;
+        }
+
+        #navbar>div>h3 {
+            cursor: pointer;
+        }
+
+        .container {
+            display: grid;
+            width: 100%;
+            /* min-height: 100vh; */
+            padding: 20px;
+            padding-top: 90px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            background-color: white;
+            /* rgb(193, 195, 209) */
+        }
+
+        .container>div {
+            text-align: center;
+            height: 319px;
+            background-color: white;
+            /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+        }
+
+        .container>div>h4 {
+            align-items: center;
+            margin: 10px;
+
+        }
+
+        .container>div>div {
+            background-color: #fb641b;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container>div>div>div {
+            width: 50%;
+            text-align: center;
+            font-size: x-large;
+            font-weight: 600;
+        }
+
+        .container>div>div>button {
+            width: 50%;
+            height: 100%;
+            font-weight: 700;
+            font-size: 18px;
+            background-color: #ff9f00;
+            color: white;
+            border: 0;
+            cursor: pointer;
+        }
+
+        #cart_container {
+            width: 100%;
+            height: 100vh;
+            display: none;
+            margin-top: 60px;
+            padding-top: 0px;
+            /* border: 5px solid saddlebrown; */
+        }
+
+        #product_division {
+            width: 70%;
+            height: 100vh;
+            border-right: 2px solid #fb641b;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            overflow-y: scroll;
+            padding-top: 20px;
+        }
+
+        #summary_division {
+            width: 30%;
+            height: 91vh;
+            border-left: 2px solid #fb641b;
+            padding: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        #summary_division_1>div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #summary_division_2 {
+            margin-top: 5px;
+            height: 68vh;
+            overflow-y: scroll;
+            /* border: 2px solid saddlebrown; */
+        }
+
+        #summary_division_3 {
+            display: flex;
+            width: 100%;
+            /* height: 10vh; */
+        }
+
+        #summary_division_3>div {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+
+        #summary_division_3>div:nth-child(2) {
+            background-color: #ff9f00;
+            color: white;
+            /* width: 70%; */
+        }
+
+        #summary_division_3>div:nth-child(1)>h3+a {
+            font-size: small;
+        }
+
+        #display_promo {
+            display: none;
+            width: 150px;
+            height: auto;
+            /* top: -104px;  */
+            bottom: 44px;
+            position: absolute;
+            flex-direction: column;
+            background-color: white;
+            padding: 5px;
+            border: 1px solid #fb641b;
+            border-radius: 8px;
+
+        }
+
+        #display_promo::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 10px solid #fb641b;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            position: relative;
+            top: 15px;
+            left: 60px;
+        }
+
+        #promo_code {
+            padding: 2px;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        #cancel {
+            padding: 5px;
+            background-color: #ff9f00;
+            color: white;
+            border: 0;
+        }
+
+        #apply {
+            padding: 5px;
+            background-color: #ff9f00;
+            color: white;
+            border: 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            width: 8px;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 6px;
+            background-color: #1A5FAC;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="view_login_page">
+        <!-- <object id="view_container"> -->
+        <div>
+            <form action="" id="login_sign_up_form">
+                <input type="email" placeholder="Enter Your Email" id="email">
+                <input type="number" placeholder="Enter  Your Phone number" id="number">
+                <input type="password" placeholder="Enter your Password" id="password">
+                <input type="Submit" value="Sign Up" id="submit">
+                <span><label for="" id="label">Already have account? </label><a href="" id="click_here">Click
+                        Here!</a></span>
+            </form>
+        </div>
+        <!-- </object> -->
+    </div>
+
+    <nav id="navbar">
+        <div>
+            <h3 id="home">Home</h3>
+            <h3 id="men">Men</h3>
+            <h3 id="women">Women</h3>
+        </div>
+        <div>
+            <h3 id="get_user">User Name</h3>
+            <h3 id="getlogin">Sign Up</h3>
+            <h3 id="cart">Cart</h3>
+        </div>
+    </nav>
+    <div id="container" class="container">
+
+    </div>
+
+    <div id="cart_container">
+        <div id="product_division" class="container">
+
+        </div>
+        <div id="summary_division">
+            <div id="summary_division_1">
+                <h1>Order Summary</h1>
+                <div>
+                    <h3>Total Items</h3>
+                    <span style="font-size: larger; margin-right: 15px;" id="total_items">0</span>
+                </div>
+            </div>
+            <div id="summary_division_2">
+                <!-- <div>fff</div> -->
+
+            </div>
+            <div id="summary_division_3">
+                <div>
+                    <h3>Total</h3>
+                    <h3><span>₹</span> <span id="total">0000</span></h3>
+                    <a href="#" id="promo">Apply Promo Code?</a>
+                </div>
+                <div id="checkout">
+                    <h3>Proceed To Checkout</h3>
+                </div>
+            </div>
+            <div id="display_promo">
+                <input type="text" id="promo_code" placeholder="Enter Promo Code" onkeyup="capital()">
+                <div style="margin-bottom: -9px;">
+                    <button id="cancel">Cancel</button>
+                    <button id="apply">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="payment_page">        
+        <div>
+            <h1 id="final_amount">Your Total Payable Amount is </h1>            
+            <form action="" id="payment_form">
+                                
+                <div>
+                    <input type="text" id="card_holder" class="pay_input" required>
+                    <label for="card_holder" id="a">Enter Card Holder Name</label>
+                </div>
+
+                <div>
+                    <input type="number" id="card_number" class="pay_input" required>
+                    <label for="card_number">Enter Card Number</label>
+                </div>
+                <div style="display: flex; justify-content: space-between;width: 250px;position: relative;">
+
+                    <div id="" style="position: relative;">
+                        <input type="number" id="card_month" class="pay_input" required>
+                        <label for="card_month">MM</label>
+                    </div>
+
+                    <div style="position: relative;">
+                        <input type="number" id="card_year" class="pay_input" required>
+                        <label for="card_year">YYYY</label>
+                    </div>
+
+                    <div style="position: relative;">
+                        <input type="number" id="card_cvv" class="pay_input" required>
+                        <label for="card_cvv">CVV</label>
+                    </div>
+
+                </div>
+                <div>
+                    <label for="" id="get_captcha"></label>
+                    <button for="get_captcha" id="refresh_captcha" style="padding: 5px;font-weight: bold;"> ⟲ </button>
+                    <input type="number" id="captcha" placeholder="Enter captcha" class="pay_input">
+                </div>
+
+                <input type="submit" id="pay" value="Make Payment">
+            </form>
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #navbar {
+            width: 80%;
+            height: 80px;
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: space-around;
+            background-color: teal;
+            color: white;
+            font-size: 25px;
+        }
+
+        #contact_form {
+            display: flex;
+            flex-direction: column;
+            width: 35%;
+            margin: 50px auto;
+            justify-content: center;
+        }
+
+        #contact_list,
+        #favourite_list {
+            margin: auto;
+            display: none;
+            width: 70%;
+            /* border: 2px solid green; */
+            /* background-color: teal; */
+            /* color: white; */
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #con_list,
+        #fav_list {
+            width: 100%;
+            height: 40px;
+            display: none;
+            margin-top: 50px;
+        }
+
+
+        th,
+        td,
+        tr {
+            padding: 10px;
+            border-left: 1px solid white;
+            text-align: left;
+            height: 30px;
+        }
+
+        label {
+            position: absolute;
+            left: 12px;
+            top: 10px;
+            color: gray;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 30px;
+            /* margin-top: 30px; */
+            border: 0;
+            border-bottom: 2px solid teal;
+            outline: none;
+            font-size: 17px;
+        }
+
+        input:focus~label {
+            font-size: 12px;
+            top: -7px;
+            transition: all 0.5s;
+            color: black;
+        }
+
+        input:valid~label {
+            font-size: 12px;
+            top: -7px;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .a{
+            position: relative;
+        }
+
+        #type{
+            width: 250px;
+            height: 50px;
+            background-color: teal;
+            color: white;
+            font-size: large;
+            margin-bottom: 30px;
+        }
+
+        #submit{
+            padding: 20px;
+            width: 250px;
+            background-color: teal;
+            color: white;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="home">Home</div>
+        <div id="contact">Contact list</div>
+        <div id="fav">Favourites</div>
+    </nav>
+    <form action="" id="contact_form">
+        <h1 style="margin-bottom: 30px;">Enter Contact Details To be Saved</h1>
+        <div class="a">
+            <input type="text" id="names" required>
+            <label for="names">Enter Contact Name</label>
+        </div>
+        <div class="a">
+            <input type="number" id="number" required>
+            <label for="number">Enter Mobile Number</label>
+        </div>
+        <select id="type">
+            <option value="Select Type">Select Type</option>
+            <option value="Friends">Friends</option>
+            <option value="Family">Family</option>
+            <option value="Others">Others</option>
+        </select>
+        <input type="submit" id='submit'value="Save Contact">
+    </form>
+
+    <div id="contact_list">
+        <table id="con_list">
+        </table>
+    </div>
+
+    <div id="favourite_list">
+        <table id="fav_list">
+        </table>
+    </div>
+</body>
+
+<script>
+    var home = document.querySelector('#home')
+    var contact = document.querySelector('#contact')
+    var fav = document.querySelector('#fav')
+    var contact_form = document.querySelector('#contact_form')
+    var names = document.querySelector('#names')
+    var number = document.querySelector('#number')
+    var type = document.querySelector('#type')
+    var con_list = document.querySelector('#con_list')
+    var fav_list = document.querySelector('#fav_list')
+
+    if (localStorage.getItem('contactList') == null) {
+        localStorage.setItem('contactList', JSON.stringify([]))
+    }
+
+    if (localStorage.getItem('favourites') == null) {
+        localStorage.setItem('favourites', JSON.stringify([]))
+    }
+
+    console.log(localStorage.getItem('contactList'))
+
+    function save() {
+        event.preventDefault()
+
+        var details = {
+            contact_name: names.value,
+            contact_number: number.value,
+            contact_type: type.value
+        }
+
+        console.log(details)
+        console.log(names.value)
+        var arr = JSON.parse(localStorage.getItem('contactList'))
+        arr.push(details)
+        localStorage.setItem('contactList', JSON.stringify(arr))
+    }
+
+
+    function get_contact() {
+        con_list.style.display = 'table'
+        fav_list.style.display = 'none'
+        contact_form.style.display = 'none'
+        con_list.innerHTML = ''
+        var tab =
+            `
+        <tr style="background-color: teal;color: white;">
+                <th style="background-color: teal;color: white;">Contact Name</th>
+                <th style="background-color: teal;color: white;">Mobile Number</th>
+                <th style="background-color: teal;color: white;">Type</th>
+                <th style="background-color: teal;color: white;">Favourites</th>
+            </tr>
+        `
+        con_list.innerHTML = tab
+        var list = JSON.parse(localStorage.getItem("contactList"))
+        console.log(list)
+        console.log(list.contact_name, list.contact_number, list.contact_type)
+        list.forEach((element, i) => {
+            var tr = document.createElement('tr')
+            var td =
+                `
+                    <td> ${element.contact_name}</td>
+                    <td> ${element.contact_number}</td>
+                    <td> ${element.contact_type}</td>
+                    <td> <span id='fav_list${i}' style='color:red;'>Add To Fav</span> </td>
+                `
+            tr.innerHTML = td
+            con_list.append(tr)
+            var add = document.querySelector('#fav_list' + i)
+            add.addEventListener('click', () => {
+                var arr = JSON.parse(localStorage.getItem('favourites'))
+                arr.push({
+                    contact_name: element.contact_name,
+                    contact_number: element.contact_number,
+                    contact_type: element.contact_type
+                })
+                localStorage.setItem('favourites', JSON.stringify(arr))
+                add.innerText = 'Added'
+            })
+        });
+    }
+
+    function show_fav() {
+        con_list.style.display = 'none'
+        fav_list.style.display = 'table'
+        contact_form.style.display = 'none'
+        fav_list.innerHTML = ''
+        var tab =
+            `
+        <tr style="background-color: teal;color: white;">
+                <th style="background-color: teal;color: white;">Contact Name</th>
+                <th style="background-color: teal;color: white;">Mobile Number</th>
+                <th style="background-color: teal;color: white;">Type</th>
+            </tr>
+        `
+        fav_list.innerHTML = tab
+
+        var list = JSON.parse(localStorage.getItem('favourites'))
+        // console.log(list)
+        // console.log(list.contact_name,list.contact_number,list.contact_type)
+        list.forEach((element, i) => {
+            var tr = document.createElement('tr')
+            var td =
+                `
+                    <td> ${element.contact_name}</td>
+                    <td> ${element.contact_number}</td>
+                    <td> ${element.contact_type}</td>
+                `
+            tr.innerHTML = td
+            fav_list.append(tr)
+        });
+    }
+
+    contact_form.addEventListener('submit', save)
+    contact.addEventListener('click', get_contact)
+    fav.addEventListener('click', show_fav)
+    home.addEventListener('click', () => {
+        con_list.style.display = 'none'
+        fav_list.style.display = 'none'
+        contact_form.style.display = 'flex'
+    })
+</script>
+
+</html>

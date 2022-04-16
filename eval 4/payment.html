@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 60px auto;
+            width: 30%;
+            height: auto;
+            border: 2px solid teal;
+            border-radius: 10px;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+
+        input{
+            font-size: 22px;
+            padding: 10px;
+            margin: 15px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form action="" id="form">
+            <input type="text" placeholder="Enter Your Card Name" id="name">
+            <input type="number" placeholder="Enter Your Card Number" id="number">
+            <input type="number" placeholder="Enter Your Card Month" id="month">
+            <input type="number" placeholder="Enter Your Card Year" id="year">
+            <input type="number" placeholder="Enter Your Card CVV" id="cvv">
+            <input type="submit" value="Place Order">
+        </form>
+    </div>
+</body>
+<script>    
+    var form = document.querySelector('#form')
+    var name = document.querySelector('#name')
+    var number = document.querySelector('#number')
+    var month = document.querySelector('#month')
+    var year = document.querySelector('#year')
+    var cvv = document.querySelector('#cvv')
+
+    
+
+    function validate(){
+        if (name.value === '') {
+            alert('Please Enter Card Name')
+        } else if (number.value.length != 16) {
+            alert('Please Enter Valid Card Number')
+        } else if (month.value < 0 && month.value <= 12) {
+            alert('Please Enter Valid Card Expiry Month')
+        } else if (year.value < 2022 || (year.value == year && month.value < month)){
+            alert('Please Enter Valid Month And Year Of Card')
+        } else if (cvv.value.length != 3) {
+            alert('Please Enter Valid CVV Code')
+        }else{
+            alert('Your order is successfully placed')
+        }
+    }
+
+    form.addEventListener('submit',() =>{
+        event.preventDefault()
+        validate()
+    }) 
+</script>
+
+</html>

@@ -859,14 +859,14 @@ function list_data(data) {
         var data_card = document.createElement('div')
         var create_card =
             `
-            <img src='${element.image_url}'>
-            <div style='width:100%;height:36px;overflow:hidden;background-color: white;display:block; '>
-                <h4>${element.name}</h4>
-            </div>
-            <div>
-                <div>₹ ${element.price}</div>
-                <button class='add_to_cart${i}'>Add To Cart</button>
-            </div>
+                <img src='${element.image_url}'>
+                <div style='width:100%;height:36px;overflow:hidden;background-color: white;display:block; '>
+                    <h4>${element.name}</h4>
+                </div>
+                <div>
+                    <div>₹ ${element.price}</div>
+                    <button class='add_to_cart${i}'>Add To Cart</button>
+                </div>
             `
         data_card.innerHTML = create_card
         container.append(data_card)
@@ -879,7 +879,7 @@ function list_data(data) {
                 //console.log(cart)
                 alert('sucessfull')
                 var a = JSON.parse(localStorage.getItem(get_user.innerText))
-                //console.log(a)                                    //Data Is Retrived From The Local Storage Temproray
+                console.log(a)                                    //Data Is Retrived From The Local Storage Temproray
                 a.user_cart.push(element)                          //Stored In var a And Cart Data Is Pushed To user_cart
                 //console.log(a)                                  //And The Whole User Data Is replaced With The New Data
                 localStorage.setItem(get_user.innerText, JSON.stringify(a))

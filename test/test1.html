@@ -7,14 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="container"></div>
+    <div id="container">
+        
+    </div>
 </body>
 <script>
     var arr = [1,2,3,4,5,6]
 
-    // function add(){
-    //     arr.forEach(())
-    // }
-
+    function create(){
+        
+        arr.forEach(element => {
+            var div =  document.createElement('div')
+            var a = 
+            `
+                <h1> ${element} </h1>
+            `
+                div.innerHTML = a
+                document.querySelector('#container').append(div)
+            });
+    }
+    create()
 </script>
 </html>
